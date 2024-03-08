@@ -18,8 +18,6 @@ This repository contains the code for a property rental web application. The app
 - Node.js
 - Express
 - MongoDB
-- Mongoose
-- HTML/CSS
 
 ## Installation and Setup
 
