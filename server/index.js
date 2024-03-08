@@ -4,13 +4,23 @@ import cors from "cors";
 import { default as mongoose } from "mongoose";
 import User from "./models/User.js";
 import bcrypt from "bcryptjs";
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
+import cookieParser from "cookie-parser";
+import * as download from "image-downloader";
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 dotenv.config();
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 const bcryptSalt = bcrypt.genSaltSync(12);
+const jwtSecret = "qiwuerdioajhsncfkxznvlkd";
 
 app.use(
   cors({
@@ -55,8 +65,15 @@ app.post("/login", async (req, res) => {
   if (userDoc) {
     const isPasswordOk = bcrypt.compareSync(password, userDoc.password);
     if (isPasswordOk) {
-      jwt.sign({ email: userDoc.email })
-      res.json("Password OK.");
+      jwt.sign(
+        { email: userDoc.email, id: userDoc._id, name: userDoc.name },
+        jwtSecret,
+        {},
+        (err, token) => {
+          if (err) throw err;
+          res.cookie("token", token).json(userDoc);
+        }
+      );
     } else {
       res.status(422).json("Password not OK.");
     }
@@ -64,5 +81,34 @@ app.post("/login", async (req, res) => {
     res.json("User not found.");
   }
 });
+
+app.get("/profile", (req, res) => {
+  const { token } = req.cookies;
+  if (token) {
+    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+      if (err) throw err;
+      const { name, email, _id } = await User.findById(userData.id);
+      res.json({ name, email, _id });
+    });
+  } else {
+    res.json(null);
+  }
+});
+
+app.post("/logout", (req, res) => {
+  res.cookie('token', '').json(true);
+})
+
+console.log({__dirname});
+app.post("/upload-by-link", async (req, res) => {
+  const {link} = req.body;
+  const newName = 'photo' + Date.now() + '.jpg';
+  await download.image({
+    url: link,
+    dest: __dirname + '/uploads/' + newName,
+  });
+  res.json(newName);
+
+})
 
 app.listen(4000);

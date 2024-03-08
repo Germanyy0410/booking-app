@@ -24,13 +24,13 @@ function RegisterPage() {
   }
 
   return (
-    <div className="mt-4 grow flex items-center justify-around">
+    <div className="mt-10 grow flex items-center justify-around">
       <div className="mb-64">
         <h1 className="text-4xl text-center mb-4">Register</h1>
         <form className="max-w-md mx-auto" onSubmit={registerUser}>
           <input
             type="text"
-            placeholder="Tien Duc Hoang"
+            placeholder="Your name"
             value={name}
             onChange={(ev) => setName(ev.target.value)}
           />
