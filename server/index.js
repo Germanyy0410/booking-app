@@ -7,6 +7,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import * as download from "image-downloader";
+import multer from "multer";
+import fs from "fs";
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -97,7 +99,7 @@ app.get("/profile", (req, res) => {
 
 app.post("/logout", (req, res) => {
   res.cookie('token', '').json(true);
-})
+});
 
 console.log({__dirname});
 app.post("/upload-by-link", async (req, res) => {
@@ -108,7 +110,20 @@ app.post("/upload-by-link", async (req, res) => {
     dest: __dirname + '/uploads/' + newName,
   });
   res.json(newName);
+});
 
+const photoMiddleware = multer({dest: 'uploads/'});
+app.post('/upload', photoMiddleware.array('photos', 100), (req, res) => {
+    const uploadedFiles = [];
+    for (let i = 0; i < req.files.length; i++) {
+        const {path,originalname} = req.files[i];
+        const parts = originalname.split('.');
+        const ext = parts[parts.length - 1];
+        const newPath = path + '.' + ext;
+        fs.renameSync(path, newPath);
+        uploadedFiles.push(newPath.replace('uploads\\', ''));
+    }
+    res.json(uploadedFiles);
 })
 
 app.listen(4000);
