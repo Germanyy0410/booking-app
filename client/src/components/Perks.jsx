@@ -6,6 +6,7 @@ export default function Perk({selected, onChange}) {
         if (checked) {
             onChange([...selected, name]);
         } else {
+            // eslint-disable-next-line react/prop-types
             onChange([...selected.filter(selectedName => selectedName !== name)]);
         }
     }

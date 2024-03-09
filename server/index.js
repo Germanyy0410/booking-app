@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import { default as mongoose } from "mongoose";
 import User from "./models/User.js";
+import PlaceModel from "./models/Place.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
@@ -12,6 +13,7 @@ import fs from "fs";
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import Place from "./models/Place.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -124,6 +126,18 @@ app.post('/upload', photoMiddleware.array('photos', 100), (req, res) => {
         uploadedFiles.push(newPath.replace('uploads\\', ''));
     }
     res.json(uploadedFiles);
-})
+});
+
+app.post('/places', (req, res) => {
+    const { token } = req.cookies;
+    const { title, address, addedPhotos, description, perks, extraInfo, checkIn, checkOut, maxGuests } = req.body;
+
+    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+        if (err) throw err;
+        const placeDoc = await Place.create({
+            owner: userData.id, title, address, photos:addedPhotos, description, perks, extraInfo, checkIn, checkOut, maxGuests,});
+        res.json(placeDoc);
+    });
+});
 
 app.listen(4000);
