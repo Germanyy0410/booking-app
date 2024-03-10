@@ -17,23 +17,25 @@ export default function PlaceFormPage() {
     const [checkIn, setCheckIn] = useState('');
     const [checkOut, setCheckOut] = useState('');
     const [maxGuest, setMaxGuest] = useState(1);
+    const [price, setPrice] = useState(100.000);
     const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
         if (!id) {
             return;
         }
-        axios.get('/places/' + id).then(response => {
+        axios.get('/places/'+id).then(response => {
             const {data} = response;
             setTitle(data.title);
             setAddress(data.address);
-            setAddedPhotos(data.addedPhotos);
+            setAddedPhotos(data.photos);
             setDescription(data.description);
             setPerks(data.perks);
             setExtraInfo(data.extraInfo);
             setCheckIn(data.checkIn);
             setCheckOut(data.checkOut);
             setMaxGuest(data.maxGuest);
+            setPrice(data.price);
         })
     }, [id])
 
@@ -56,14 +58,23 @@ export default function PlaceFormPage() {
 
     async function savePlace(ev) {
         ev.preventDefault();
-        const placeData = {title, address, addedPhotos, description, perks, extraInfo, checkIn, checkOut, maxGuest};
-
+        const placeData = {
+            title, address, addedPhotos,
+            description, perks, extraInfo,
+            checkIn, checkOut, maxGuest, price
+        };
         if (id) {
-            await axios.put('/places', {id, ...placeData});
+            // update
+            await axios.put('/places', {
+                id, ...placeData
+            });
+            setRedirect(true);
         } else {
+            // new place
             await axios.post('/places', placeData);
+            setRedirect(true);
         }
-        setRedirect(true);
+
     }
 
     if (redirect) {
@@ -95,7 +106,7 @@ export default function PlaceFormPage() {
                 <textarea value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)}/>
 
                 {preInput('Check In & Out time', 'check in and check out time, remember to clean the rooms between guests')}
-                <div className="grid gap-2 sm:grid-cols-3">
+                <div className="grid gap-2 grid-cols-2 md:grid-cols-4">
                     <div>
                         <h3 className="mt-2 -mb-1">Check in time</h3>
                         <input type="text" value={checkIn} onChange={ev => setCheckIn(ev.target.value)}
@@ -109,6 +120,10 @@ export default function PlaceFormPage() {
                     <div>
                         <h3>Max number of guests</h3>
                         <input type="number" value={maxGuest} onChange={ev => setMaxGuest(ev.target.value)}/>
+                    </div>
+                    <div>
+                        <h3>Price per night</h3>
+                        <input type="number" value={price} onChange={ev => setPrice(ev.target.value)}/>
                     </div>
                 </div>
 

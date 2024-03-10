@@ -47,7 +47,7 @@ export default function Perk({selected, onChange}) {
                 </label>
 
                 <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-                    <input type="checkbox" checked={selected.includes('radio')} name="tv" onChange={handleCbClick}/>
+                    <input type="checkbox" checked={selected.includes('tv')} name="tv" onChange={handleCbClick}/>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round"
@@ -57,7 +57,7 @@ export default function Perk({selected, onChange}) {
                 </label>
 
                 <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-                    <input type="checkbox" checked={selected.includes('radio')} name="pets" onChange={handleCbClick}/>
+                    <input type="checkbox" checked={selected.includes('pets')} name="pets" onChange={handleCbClick}/>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round"
@@ -67,7 +67,7 @@ export default function Perk({selected, onChange}) {
                 </label>
 
                 <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-                    <input type="checkbox" checked={selected.includes('wifi')} name="entrance" onChange={handleCbClick}/>
+                    <input type="checkbox" checked={selected.includes('entrance')} name="entrance" onChange={handleCbClick}/>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round"
