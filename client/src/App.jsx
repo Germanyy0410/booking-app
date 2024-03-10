@@ -9,6 +9,7 @@ import { UserContextProvider } from "./context/UserContext";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import PlacesPage from "./pages/PlacesPage.jsx";
 import PlaceFormPage from "./pages/PlaceFormPage.jsx";
+import SinglePlacePage from "./pages/SinglePlacePage.jsx";
 
 axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
@@ -25,6 +26,7 @@ function App() {
           <Route path="/account/places" element={<PlacesPage />} />
           <Route path="/account/places/new" element={<PlaceFormPage />} />
           <Route path="/account/places/:id" element={<PlaceFormPage />} />
+          <Route path="/place/:id" element={<SinglePlacePage />} />
         </Route>
       </Routes>
     </UserContextProvider>

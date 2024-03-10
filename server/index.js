@@ -104,7 +104,7 @@ app.post("/logout", (req, res) => {
   res.cookie('token', '').json(true);
 });
 
-console.log({__dirname});
+// console.log({__dirname});
 app.post("/upload-by-link", async (req, res) => {
   const {link} = req.body;
   const newName = 'photo' + Date.now() + '.jpg';
@@ -174,6 +174,11 @@ app.put('/places', async (req, res) => {
 
 app.get('/places', async (req, res) => {
     res.json(await Place.find());
+});
+
+app.post('/booking', (req, res) => {
+    const {place, checkIn, checkOut, numberOfGuests, name, phone} = req.body;
+
 })
 
 app.listen(4000);

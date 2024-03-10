@@ -16,8 +16,7 @@ export default function PlacesPage() {
         <div>
             <AccountNavigation/>
             <div className="text-center">
-                List of all added places <br/>
-                <Link className=" inline-flex gap-1 bg-primary text-white py-2 px-5 rounded-full "
+                <Link className=" inline-flex gap-1 bg-primary text-white mb-3 py-2 px-5 rounded-full "
                       to={'/account/places/new'}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                          stroke="currentColor" className="w-6 h-6">
@@ -30,9 +29,9 @@ export default function PlacesPage() {
                 {places.length > 0 && places.map(place => (
                     // eslint-disable-next-line react/jsx-key
                     <Link to={'/account/places/'+place._id} className="mb-3 flex cursor-pointer gap-4 bg-gray-100 p-4 rounded-2xl">
-                        <div className="flex w-32 h-32 bg-gray-300 grow shrink-0">
+                        <div className="flex w-32 h-32  grow shrink-0">
                             {place.photos.length > 0 && (
-                                <img className="object-cover" src={'http://localhost:4000/uploads/'+place.photos[0]} alt=""/>
+                                <img className="object-cover rounded-2xl justify-center items-center" src={'http://localhost:4000/uploads/'+place.photos[0]} alt=""/>
                             )}
                         </div>
                         <div className="grow-0 shrink">
