@@ -34,7 +34,7 @@ app.use(
 );
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect('mongodb+srv://duchoangtien0410:tienduchoang@booking-app.ik2am4z.mongodb.net/?retryWrites=true&w=majority')
   .then(() => {
     console.log("\nApp connected to database");
     console.log(`Server has started on port http://localhost:4000\n`);
