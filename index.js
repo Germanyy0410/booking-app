@@ -26,12 +26,12 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 const bcryptSalt = bcrypt.genSaltSync(12);
 const jwtSecret = "qiwuerdioajhsncfkxznvlkd";
 
-app.use(
-  cors({
-    credentials: true,
-    origin: "https://quiet-pasca-2a75d2.netlify.app/",
-  })
-);
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: "https://quiet-pasca-2a75d2.netlify.app/",
+//   })
+// );
 
 mongoose
   .connect(process.env.MONGO_URL)
