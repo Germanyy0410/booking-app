@@ -13,7 +13,7 @@ export default function SimplePlacePage() {
         if (!id) {
             return;
         }
-        axios.get(`/places/${id}`).then(response => {
+        axios.get(`https://booking-app-sandy-two.vercel.app/places/${id}`).then(response => {
             setPlace(response.data);
         })
     }, [id]);

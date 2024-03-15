@@ -11,7 +11,7 @@ export default function SingleBookingPage() {
 
     useEffect(() => {
         if (id) {
-            axios.get('/bookings').then(response => {
+            axios.get('https://booking-app-sandy-two.vercel.app/bookings').then(response => {
                 const foundBooking = response.data.find(({_id}) => _id === id);
                 if (foundBooking) {
                     setBooking(foundBooking);

@@ -24,7 +24,7 @@ export default function PlaceFormPage() {
         if (!id) {
             return;
         }
-        axios.get('/places/'+id).then(response => {
+        axios.get('https://booking-app-sandy-two.vercel.app/places/'+id).then(response => {
             const {data} = response;
             setTitle(data.title);
             setAddress(data.address);

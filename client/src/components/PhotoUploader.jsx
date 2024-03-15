@@ -6,7 +6,7 @@ export default function PhotoUploader({addedPhotos, onChange}) {
 
     async function addPhotoByLink(ev) {
         ev.preventDefault();
-        const {data:filename} = await axios.post('/upload-by-link', {link: photoLink});
+        const {data:filename} = await axios.post('https://booking-app-sandy-two.vercel.app/upload-by-link', {link: photoLink});
         onChange(prev => {
             return [...prev, filename];
         });

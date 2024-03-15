@@ -12,7 +12,7 @@ function RegisterPage() {
     ev.preventDefault();
 
     try {
-      await axios.post("/register", {
+      await axios.post("https://booking-app-sandy-two.vercel.app/register", {
         name,
         email,
         password,

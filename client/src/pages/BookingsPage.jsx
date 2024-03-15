@@ -10,7 +10,7 @@ export default function BookingsPage() {
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
-        axios.get('/bookings').then((response) => {
+        axios.get('https://booking-app-sandy-two.vercel.app/bookings').then((response) => {
             setBookings(response.data);
         })
     }, []);

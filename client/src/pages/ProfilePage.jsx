@@ -15,7 +15,7 @@ function ProfilePage() {
     }
 
     async function logOut() {
-        await axios.post('/logout');
+        await axios.post('https://booking-app-sandy-two.vercel.app/logout');
         setRedirect('/');
         setUser(null);
     }

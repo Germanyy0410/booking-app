@@ -15,7 +15,7 @@ function LoginPage() {
   async function handleLoginSubmit(ev) {
     ev.preventDefault();
     try {
-      const { data } = await axios.post("/login", { email, password });
+      const { data } = await axios.post("https://booking-app-sandy-two.vercel.app/login", { email, password });
       setUser(data);
       alert("Login successful.");
 
