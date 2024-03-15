@@ -14,6 +14,15 @@ import { dirname } from "path";
 import User from "./models/User.js";
 import Place from "./models/Place.js";
 import Booking from "./models/Booking.js";
+
+app.use(
+  cors({
+    credentials: true,
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    origin: "https://booking-app-client-weld.vercel.app",
+  })
+);
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -25,14 +34,6 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 
 const bcryptSalt = bcrypt.genSaltSync(12);
 const jwtSecret = "qiwuerdioajhsncfkxznvlkd";
-
-app.use(
-  cors({
-    credentials: true,
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    origin: "https://booking-app-client-weld.vercel.app",
-  })
-);
 
 mongoose
   .connect(
