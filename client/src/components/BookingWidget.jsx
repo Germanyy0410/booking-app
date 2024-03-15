@@ -26,13 +26,13 @@ export default function BookingWidget ({place}) {
     }
 
     async function bookThisPlace() {
-        const response = await axios.post('https://booking-app-api-zeta.vercel.app/bookings', {
+        const response = await axios.post('/bookings', {
             checkIn, checkOut, numberOfGuests, name, phone,
             place:place._id,
             price: numberOfNights * place.price,
         });
         const bookingId = response.data._id;
-        setRedirect(`https://booking-app-api-zeta.vercel.app/account/bookings/${bookingId}`);
+        setRedirect(`/account/bookings/${bookingId}`);
     }
 
     if (redirect) {

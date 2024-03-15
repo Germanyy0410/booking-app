@@ -12,7 +12,7 @@ function RegisterPage() {
     ev.preventDefault();
 
     try {
-      await axios.post("https://booking-app-api-zeta.vercel.app/register", {
+      await axios.post("/register", {
         name,
         email,
         password,

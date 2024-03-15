@@ -21,7 +21,7 @@ export default function PlaceGallery({place}) {
                     </div>
                     {place.photos?.length > 0 && place.photos.map(photo => (
                         <div>
-                            <img src={"https://booking-app-api-zeta.vercel.app/uploads/" + photo} alt=""/>
+                            <img src={"/uploads/" + photo} alt=""/>
                         </div>
                     ))}
                 </div>

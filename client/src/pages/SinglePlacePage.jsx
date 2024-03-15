@@ -13,7 +13,7 @@ export default function SimplePlacePage() {
         if (!id) {
             return;
         }
-        axios.get(`https://booking-app-api-zeta.vercel.app/places/${id}`).then(response => {
+        axios.get(`/places/${id}`).then(response => {
             setPlace(response.data);
         })
     }, [id]);

@@ -15,8 +15,8 @@ function ProfilePage() {
     }
 
     async function logOut() {
-        await axios.post('https://booking-app-api-zeta.vercel.app/logout');
-        setRedirect('https://booking-app-api-zeta.vercel.app/');
+        await axios.post('/logout');
+        setRedirect('/');
         setUser(null);
     }
 
@@ -25,7 +25,7 @@ function ProfilePage() {
     // }
 
     if (ready && !user && !redirect) {
-        return <Navigate to={"https://booking-app-api-zeta.vercel.app/login"}/>;
+        return <Navigate to={"/login"}/>;
     }
 
     if (redirect) {

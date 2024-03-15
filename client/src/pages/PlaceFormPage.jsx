@@ -24,7 +24,7 @@ export default function PlaceFormPage() {
         if (!id) {
             return;
         }
-        axios.get('https://booking-app-api-zeta.vercel.app/places/'+id).then(response => {
+        axios.get('/places/'+id).then(response => {
             const {data} = response;
             setTitle(data.title);
             setAddress(data.address);
@@ -65,20 +65,20 @@ export default function PlaceFormPage() {
         };
         if (id) {
             // update
-            await axios.put('https://booking-app-api-zeta.vercel.app/places', {
+            await axios.put('/places', {
                 id, ...placeData
             });
             setRedirect(true);
         } else {
             // new place
-            await axios.post('https://booking-app-api-zeta.vercel.app/places', placeData);
+            await axios.post('/places', placeData);
             setRedirect(true);
         }
 
     }
 
     if (redirect) {
-        return <Navigate to={'https://booking-app-api-zeta.vercel.app/account/places'}/>
+        return <Navigate to={'/account/places'}/>
     }
 
     return (

@@ -15,7 +15,7 @@ function LoginPage() {
   async function handleLoginSubmit(ev) {
     ev.preventDefault();
     try {
-      const { data } = await axios.post("https://booking-app-api-zeta.vercel.app/login", { email, password });
+      const { data } = await axios.post("/login", { email, password });
       setUser(data);
       alert("Login successful.");
 
@@ -26,7 +26,7 @@ function LoginPage() {
   }
 
   if (redirect) {
-    return <Navigate to={"https://booking-app-api-zeta.vercel.app/"} />;
+    return <Navigate to={"/"} />;
   }
 
   return (
