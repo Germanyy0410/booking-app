@@ -18,7 +18,6 @@ import Booking from "./models/Booking.js";
 app.use(
   cors({
     credentials: true,
-    methods: ["POST", "GET", "PUT", "DELETE"],
     origin: "https://booking-app-client-weld.vercel.app",
   })
 );
