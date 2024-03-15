@@ -29,12 +29,15 @@ const jwtSecret = "qiwuerdioajhsncfkxznvlkd";
 app.use(
   cors({
     credentials: true,
+    methods: ["POST", "GET"],
     origin: "https://booking-app-n7my.vercel.app",
   })
 );
 
 mongoose
-  .connect('mongodb+srv://duchoangtien0410:tienduchoang@booking-app.ik2am4z.mongodb.net/?retryWrites=true&w=majority')
+  .connect(
+    "mongodb+srv://duchoangtien0410:tienduchoang@booking-app.ik2am4z.mongodb.net/?retryWrites=true&w=majority"
+  )
   .then(() => {
     console.log("\nApp connected to database");
     console.log(`Server has started on port http://localhost:4000\n`);
