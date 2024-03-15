@@ -37,20 +37,20 @@ export default function PlaceGallery({place}) {
                         <div>
                             <img onClick={() => setShowAllPhotos(true)}
                                  className="aspect-square object-cover cursor-pointer"
-                                 src={'http://localhost:4000/uploads/' + place.photos[0]}/>
+                                 src={'/uploads/' + place.photos[0]}/>
                         </div>
                     )}
                 </div>
                     {place.photos?.[1] && (
                         <img onClick={() => setShowAllPhotos(true)}
                              className="aspect-square object-cover cursor-pointer"
-                             src={'http://localhost:4000/uploads/' + place.photos[1]}/>
+                             src={'/uploads/' + place.photos[1]}/>
                     )}
                     <div className="overflow-hidden">
                         {place.photos?.[2] && (
                             <img onClick={() => setShowAllPhotos(true)}
                                  className="aspect-square object-cover cursor-pointer"
-                                 src={'http://localhost:4000/uploads/' + place.photos[2]}/>
+                                 src={'/uploads/' + place.photos[2]}/>
                         )}
                     </div>
             </div>
