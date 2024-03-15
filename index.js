@@ -29,7 +29,7 @@ const jwtSecret = "qiwuerdioajhsncfkxznvlkd";
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: "https://quiet-pasca-2a75d2.netlify.app/",
   })
 );
 
