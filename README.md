@@ -1,36 +1,8 @@
-# AtlasGo - An Property Rental Web Application
+# React + Vite
 
-This repository contains the code for a property rental web application. The application allows users to view, add, and book rental properties. It also includes features such as adding and selecting photos for a property, creating a booking widget with extra information, and implementing booking functionality.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- View and search for rental properties
-- Add new rental properties
-- Select amenities and perks for each property
-- View property details, including photos and pricing
-- Book rental properties with check-in and check-out dates
-- Save booking information to the database
-- View and manage bookings
-
-## Technologies Used
-
-- React
-- Node.js
-- Express
-- MongoDB
-
-## Installation and Setup
-
-1. Clone the repository to your local machine.
-2. Install dependencies using ```npm install``` in the root directory and the ```client``` directory.
-3. Create a MongoDB database and update the connection string in the ```.env``` file.
-4. Start the server using ```npm start``` in the ```server``` directory.
-5. Start the client using ```npm run dev``` in the ```client``` directory.
-
-## Usage
-
-- Navigate to <http://localhost:5173> to access the web application.
-- View and search for rental properties.
-- Add new rental properties and select amenities and perks.
-- Book rental properties with check-in and check-out dates.
-- View and manage bookings in the user dashboard.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
