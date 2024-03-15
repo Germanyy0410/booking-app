@@ -19,7 +19,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: "https://booking-app-client-weld.vercel.app",
+    origin: "http://booking-app-client-weld.vercel.app",
   })
 );
 
