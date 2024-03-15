@@ -226,7 +226,11 @@ app.put("/places", async (req, res) => {
 });
 
 app.get("/places", async (req, res) => {
-  res.json(await Place.find());
+  try {
+    res.json(await Place.find());
+  } catch (error) {
+    console.log("Something went wrong");
+  }
 });
 
 app.post("/bookings", async (req, res) => {
