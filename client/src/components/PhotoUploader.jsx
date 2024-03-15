@@ -51,7 +51,7 @@ export default function PhotoUploader({addedPhotos, onChange}) {
                 {/* eslint-disable-next-line react/prop-types */}
                 {addedPhotos.length > 0 && addedPhotos.map(link => (
                     <div className="h-32 flex relative" key={link}>
-                        <img className="rounded-2xl w-full object-cover" src={"http://localhost:4000/uploads/" + link}/>
+                        <img className="rounded-2xl w-full object-cover" src={"/uploads/" + link}/>
                         <button onClick={ev => removePhoto(ev, link)}
                                 className="absolute bottom-1 cursor-pointer bg-opacity-10 rounded-2xl right-1 text-white bg-black p-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"

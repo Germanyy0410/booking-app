@@ -13,7 +13,7 @@ import SinglePlacePage from "./pages/SinglePlacePage.jsx";
 import SingleBookingPage from "./pages/SingleBookingPage.jsx";
 import BookingsPage from "./pages/BookingsPage.jsx";
 
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "https://booking-app-api-zeta.vercel.app";
 axios.defaults.withCredentials = true;
 
 function App() {
