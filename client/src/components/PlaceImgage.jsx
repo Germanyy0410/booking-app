@@ -9,6 +9,6 @@ export default function PlaceImage({place, index=0, className=null}) {
 
     return (
         <img className={className}
-             src={'http://localhost:4000/uploads/' + place.photos[index]} alt=""/>
+             src={'https://booking-app-api-zeta.vercel.app/uploads/' + place.photos[index]} alt=""/>
     )
 }

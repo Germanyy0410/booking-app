@@ -12,7 +12,7 @@ export function UserContextProvider({ children }) {
 
   useEffect(() => {
     if (!user) {
-      axios.get("https://booking-app-sandy-two.vercel.app/profile").then(({ data }) => {
+      axios.get("https://booking-app-api-zeta.vercel.app/profile").then(({ data }) => {
         setUser(data);
         setReady(true);
       });

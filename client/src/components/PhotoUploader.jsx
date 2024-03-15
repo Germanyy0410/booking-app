@@ -6,7 +6,7 @@ export default function PhotoUploader({addedPhotos, onChange}) {
 
     async function addPhotoByLink(ev) {
         ev.preventDefault();
-        const {data:filename} = await axios.post('https://booking-app-sandy-two.vercel.app/upload-by-link', {link: photoLink});
+        const {data:filename} = await axios.post('https://booking-app-api-zeta.vercel.app/upload-by-link', {link: photoLink});
         onChange(prev => {
             return [...prev, filename];
         });
@@ -18,7 +18,7 @@ export default function PhotoUploader({addedPhotos, onChange}) {
         for (let i = 0; i < files.length; i++) {
             data.append('photos', files[i]);
         }
-        axios.post('/upload', data, {
+        axios.post('https://booking-app-api-zeta.vercel.app/upload', data, {
             headers: {'Content-type':'multipart/form-data'}
         }).then(response => {
             const {data:filenames} = response;

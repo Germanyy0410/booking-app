@@ -6,7 +6,7 @@ function IndexPage() {
     const [places, setPlaces] = useState([]);
 
     useEffect(() => {
-        axios.get('https://booking-app-sandy-two.vercel.app/places').then((response) => {
+        axios.get('https://booking-app-api-zeta.vercel.app/places').then((response) => {
             setPlaces(response.data);
         })
     }, []);
