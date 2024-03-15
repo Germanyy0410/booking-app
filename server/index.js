@@ -29,7 +29,7 @@ const jwtSecret = "qiwuerdioajhsncfkxznvlkd";
 app.use(
   cors({
     credentials: true,
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
     origin: "https://booking-app-client-weld.vercel.app",
   })
 );
