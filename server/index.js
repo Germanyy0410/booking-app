@@ -30,7 +30,7 @@ app.use(
   cors({
     credentials: true,
     methods: ["POST", "GET"],
-    origin: "https://booking-app-n7my.vercel.app",
+    origin: "https://booking-app-client-weld.vercel.app",
   })
 );
 
