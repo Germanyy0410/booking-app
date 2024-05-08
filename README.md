@@ -29,7 +29,7 @@ This repository contains the code for a property rental web application. The app
 
 ## Usage
 
-- Navigate to <http://localhost:5173> to access the web application.
+- Navigate to <[my-atlas-go.vercel.app](https://my-atlas-go.vercel.app/)> to access the web application.
 - View and search for rental properties.
 - Add new rental properties and select amenities and perks.
 - Book rental properties with check-in and check-out dates.
