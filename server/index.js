@@ -15,7 +15,6 @@ import User from "./models/User.js";
 import Place from "./models/Place.js";
 import Booking from "./models/Booking.js";
 
-
 const app = express();
 app.use(
   cors({
@@ -23,6 +22,8 @@ app.use(
     origin: "https://my-atlas-go.vercel.app/",
   })
 );
+
+const PORT = process.env.PORT || 4000;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -261,6 +262,6 @@ app.get("/bookings", async (req, res) => {
   res.json(await Booking.find({ user: userData.id }).populate("place"));
 });
 
-app.listen(4000, () => {
+app.listen(PORT, () => {
   console.log("Server is Running");
 });
