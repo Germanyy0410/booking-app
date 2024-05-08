@@ -23,7 +23,7 @@ app.use(
   })
 );
 
-const PORT = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -262,6 +262,6 @@ app.get("/bookings", async (req, res) => {
   res.json(await Booking.find({ user: userData.id }).populate("place"));
 });
 
-app.listen(PORT, () => {
+app.listen(port, () => {
   console.log("Server is Running");
 });
