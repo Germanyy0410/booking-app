@@ -21,7 +21,7 @@ export default function PlaceGallery({place}) {
                     </div>
                     {place.photos?.length > 0 && place.photos.map(photo => (
                         <div>
-                            <img src={"/uploads/" + photo} alt=""/>
+                            <img src={"https://booking-app-fg9e.onrender.com/uploads/" + photo} alt=""/>
                         </div>
                     ))}
                 </div>
@@ -37,20 +37,20 @@ export default function PlaceGallery({place}) {
                         <div>
                             <img onClick={() => setShowAllPhotos(true)}
                                  className="aspect-square object-cover cursor-pointer"
-                                 src={'/uploads/' + place.photos[0]}/>
+                                 src={'https://booking-app-fg9e.onrender.com/uploads/' + place.photos[0]}/>
                         </div>
                     )}
                 </div>
                     {place.photos?.[1] && (
                         <img onClick={() => setShowAllPhotos(true)}
                              className="aspect-square object-cover cursor-pointer"
-                             src={'/uploads/' + place.photos[1]}/>
+                             src={'https://booking-app-fg9e.onrender.com/uploads/' + place.photos[1]}/>
                     )}
                     <div className="overflow-hidden">
                         {place.photos?.[2] && (
                             <img onClick={() => setShowAllPhotos(true)}
                                  className="aspect-square object-cover cursor-pointer"
-                                 src={'/uploads/' + place.photos[2]}/>
+                                 src={'https://booking-app-fg9e.onrender.com/uploads/' + place.photos[2]}/>
                         )}
                     </div>
             </div>

@@ -9,6 +9,6 @@ export default function PlaceImage({place, index=0, className=null}) {
 
     return (
         <img className={className}
-             src={'/uploads/' + place.photos[index]} alt=""/>
+             src={'https://booking-app-fg9e.onrender.com/uploads/' + place.photos[index]} alt=""/>
     )
 }
