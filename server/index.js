@@ -15,11 +15,12 @@ import User from "./models/User.js";
 import Place from "./models/Place.js";
 import Booking from "./models/Booking.js";
 
+
 const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: "https://booking-app-client-germanyy0410s-projects.vercel.app",
+    origin: "https://my-atlas-go.vercel.app/",
   })
 );
 
